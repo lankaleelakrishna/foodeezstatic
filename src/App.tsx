@@ -267,32 +267,7 @@ export default function App() {
                 
               </motion.div>
 
-              {/* Social Proof */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="flex items-center gap-4 pt-8 border-t border-stone-100"
-              >
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-stone-200">
-                      <img 
-                        src={`https://i.pravatar.cc/100?img=${i + 10}`} 
-                        alt="User" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div className="flex items-center gap-1">
-                    <span className="font-black text-stone-900">4.9</span>
-                    <Star size={14} className="text-yellow-400" fill="currentColor" />
-                  </div>
-                  <p className="text-stone-400 text-xs font-bold uppercase tracking-wider">from 2,000+ reviews</p>
-                </div>
-              </motion.div>
+
             </div>
             
             {/* Floating Food Animation Section */}
