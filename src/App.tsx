@@ -124,7 +124,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3 cursor-pointer group">
-              <img src="/foodlogo.jpeg" alt="Foodeez" className="h-10 w-auto group-hover:scale-110 transition-transform" />
+              <img src="/foodlogo.png" alt="Foodeez" className="h-10 w-auto group-hover:scale-110 transition-transform" />
               <h1 className="text-2xl md:text-3xl font-black text-primary tracking-tighter hidden sm:block">
                 FOODEEZ
               </h1>
@@ -467,10 +467,12 @@ export default function App() {
     <div className="flex justify-center my-16">
       <div className="bg-gradient-to-r from-purple-500 via-pink-400 to-amber-400 p-1 rounded-3xl shadow-xl w-full max-w-3xl">
         <div className="bg-white rounded-3xl p-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">
-            Subscribe to Foodeez and unlock premium recipes, exclusive food content, personalized recommendations, and early access to new dishes.
-          </h2>
           <p className="text-lg font-semibold text-stone-700">Join now and elevate your food experience!</p>
+          <div className="mt-8">
+            <p className="text-lg font-bold text-orange-500">
+              Stop paying the "convenience tax" and enjoy the food you love without the hidden markups. Experience the exact same menu rates as the restaurant, delivered straight to your door at true dine-in prices.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -741,7 +743,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-8">
-                <img src="/foodlogo.jpeg" alt="Foodeez" className="h-12 w-auto" />
+                <img src="/foodlogo.png" alt="Foodeez" className="h-12 w-auto" />
                 <div>
                   <h1 className="text-2xl font-black tracking-tighter">FOODEEZ</h1>
                   <p className="text-[10px] text-stone-500 font-bold">by Palate Networks Private Limited</p>
