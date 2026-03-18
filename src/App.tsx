@@ -452,15 +452,9 @@ export default function App() {
         Better food <span className="bg-linear-to-r from-amber-500 to-amber-600 bg-clip-text text-transparent">for more people</span>
       </motion.h2>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2, duration: 0.9 }}
-        className="text-lg sm:text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed"
-      >
-        For over a decade, we've helped millions discover incredible local flavors — delivered fresh, fast, and straight to your door in Hyderabad and beyond.
-      </motion.p>
+      <div className="my-8 flex justify-center">
+        <div className="w-2/3 h-2 bg-gradient-to-r from-amber-400 via-purple-400 to-pink-400 rounded-full shadow-md" />
+      </div>
     </div>
 
     {/* Subscription Call-to-Action */}
