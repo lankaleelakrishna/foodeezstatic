@@ -39,7 +39,7 @@ export default function ContactUs() {
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Email: <a href="mailto:support@foodeez.example.com" className="text-primary">support@foodeez.example.com</a></li>
                 <li>Phone: +1 (555) 123-4567</li>
-                <li>Address: 123 Food Street, Gourmet City, FC 12345</li>
+                <li>Address: 123 Food Street, Hyderabad, FC 12345</li>
               </ul>
             </section>
 

@@ -98,44 +98,7 @@ const RESTAURANTS = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "leela krishna",
-    role: "Entrepreneur",
-    text: "Saves me so much time during busy work days. Premium selection of restaurants. It's like Uber Eats but better.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    name: "Johnson",
-    role: "Food Blogger",
-    text: "The fastest delivery service I've ever used. The UI is gorgeous and the food arrived piping hot! Highly recommended.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    name: "Bhargav",
-    role: "Designer",
-    text: "As a designer, I appreciate the beautiful glassmorphism aesthetic. But the food quality is what keeps me coming back.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    name: "Vijay",
-    role: "Student",
-    text: "Perfect for late night study sessions. The tracking feature is super accurate and the discounts are great!",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    name: "Manikanta",
-    role: "Chef",
-    text: "As a chef, I'm picky about where I order from. Foodeez consistently delivers quality meals from the best spots in town.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-  },
-  {
-    name: "Rama krishna",
-    role: "Marketing",
-    text: "The app is so intuitive. I love the real-time tracking—it's actually accurate! Best food app experience so far.",
-    // image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
-  }
-];
+
 
 export default function App() {
   const navigate = useNavigate();
@@ -525,43 +488,17 @@ export default function App() {
       </motion.p>
     </div>
 
-    {/* Stats – cleaner glass cards, horizontal on desktop, stacked on mobile */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ staggerChildren: 0.15, delayChildren: 0.3 }}
-      className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-20 lg:mb-28"
-    >
-      {[
-        { number: "300,000+", label: "Partner Restaurants", icon: <Store size={28} /> },
-        { number: "800+",      label: "Cities Covered",     icon: <MapPin size={28} /> },
-        { number: "3B+",       label: "Meals Delivered",   icon: <FileText size={28} /> },
-      ].map((stat, i) => (
-        <motion.div
-          key={stat.label}
-          variants={{
-            hidden: { opacity: 0, y: 30 },
-            visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 15 } }
-          }}
-          className="bg-white/80 backdrop-blur-lg border border-stone-100/70 rounded-3xl p-8 shadow-lg hover:shadow-xl hover:border-amber-200/50 transition-all duration-400 group"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-4xl lg:text-5xl font-black text-stone-900 group-hover:text-amber-600 transition-colors">
-                {stat.number}
-              </div>
-              <p className="mt-2 text-stone-500 font-medium uppercase tracking-wider text-sm">
-                {stat.label}
-              </p>
-            </div>
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover:scale-110 transition-transform">
-              {stat.icon}
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </motion.div>
+    {/* Subscription Call-to-Action */}
+    <div className="flex justify-center my-16">
+      <div className="bg-gradient-to-r from-purple-500 via-pink-400 to-amber-400 p-1 rounded-3xl shadow-xl w-full max-w-3xl">
+        <div className="bg-white rounded-3xl p-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-black mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-600">
+            Subscribe to Foodeez and unlock premium recipes, exclusive food content, personalized recommendations, and early access to new dishes.
+          </h2>
+          <p className="text-lg font-semibold text-stone-700">Join now and elevate your food experience!</p>
+        </div>
+      </div>
+    </div>
 
     {/* Food Showcase – subtle scale-in on scroll, no crazy floating */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-10">
@@ -807,27 +744,7 @@ export default function App() {
                 </div>
               </motion.div>
 
-              {/* Testimonial Card */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, x: 50 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4, type: "spring" }}
-                className="absolute -left-12 top-1/4 z-30 bg-amber-400/20 backdrop-blur-xl border border-amber-400/30 p-6 rounded-3xl shadow-2xl max-w-60"
-              >
-                <div className="flex gap-1 mb-3">
-                  {[1, 2, 3, 4, 5].map(i => (
-                    <Star key={i} size={14} className="text-yellow-400" fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-white font-bold text-lg leading-tight mb-2">
-                  "Arrived in 15 mins! Unbelievable speed."
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-6 h-6 bg-amber-400 rounded-full" />
-                  <span className="text-white/70 text-xs font-bold uppercase tracking-wider">Verified User</span>
-                </div>
-              </motion.div>
+
 
               {/* Decorative Elements */}
               <motion.div 
@@ -840,62 +757,7 @@ export default function App() {
         </section>
 
         {/* Testimonials Section - Auto Scrolling Marquee */}
-        <section className="py-24 bg-stone-50 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 mb-16 text-center">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-black text-stone-900 mb-4"
-            >
-              What Our Customers Say
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-stone-500 text-lg"
-            >
-              Don't just take our word for it. Over 50,000+ happy customers across the city.
-            </motion.p>
-          </div>
 
-          <div className="relative flex overflow-hidden group">
-            <motion.div 
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ 
-                duration: 30, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-              className="flex gap-8 whitespace-nowrap py-4"
-            >
-              {/* Duplicate the array to create a seamless loop */}
-              {[...TESTIMONIALS, ...TESTIMONIALS].map((testimonial, i) => (
-                <div
-                  key={`${testimonial.name}-${i}`}
-                  className="w-87.5 md:w-100 bg-white p-8 rounded-3xl shadow-sm border border-stone-100 flex flex-col justify-between whitespace-normal shrink-0"
-                >
-                  <div>
-                    <div className="flex gap-1 mb-4">
-                      {[1, 2, 3, 4, 5].map(star => (
-                        <Star key={star} size={14} className="text-yellow-400" fill="currentColor" />
-                      ))}
-                    </div>
-                    <p className="text-stone-600 italic mb-6 leading-relaxed">
-                      "{testimonial.text}"
-                    </p>
-                  </div>
-                  <div className="pt-4 border-t border-stone-100">
-                    <h5 className="font-bold text-stone-900 text-sm mb-1">{testimonial.name}</h5>
-                    <p className="text-stone-400 text-xs font-semibold uppercase tracking-wide">{testimonial.role}</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
       </main>
 
       {/* Footer */}
