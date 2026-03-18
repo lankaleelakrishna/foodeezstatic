@@ -169,7 +169,7 @@ export default function App() {
             
             <div className="hidden md:flex items-center gap-2 text-stone-600 bg-stone-100/80 px-4 py-2 rounded-full cursor-pointer hover:bg-stone-200 transition-colors">
               <MapPin size={18} className="text-primary" />
-              <span className="text-sm font-medium">Hyderbad, HYD</span>
+              <span className="text-sm font-medium">Hyderabad, HYD</span>
             </div>
           </div>
 
