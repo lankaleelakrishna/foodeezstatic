@@ -106,6 +106,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [forceDesktopHero, setForceDesktopHero] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -207,8 +208,17 @@ export default function App() {
       <main className="pt-24 pb-20">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24">
-          <div className="relative min-h-150 flex items-center">
-            <div className="relative z-10 max-w-xl">
+          {/* Desktop View Toggle for mobile */}
+          <div className="block md:hidden mb-4 text-center">
+            <button
+              className="bg-stone-900 text-white px-4 py-2 rounded-full font-semibold shadow-md"
+              onClick={() => setForceDesktopHero((v) => !v)}
+            >
+              {forceDesktopHero ? 'Switch to Mobile View' : 'Switch to Desktop View'}
+            </button>
+          </div>
+          <div className={`relative min-h-150 ${forceDesktopHero ? 'flex flex-row items-stretch' : 'flex flex-col md:flex-row items-center md:items-stretch'}`}>
+            <div className={`relative z-10 max-w-xl w-full ${forceDesktopHero ? 'md:w-1/2' : 'md:w-1/2'} flex flex-col justify-center`}>
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -271,8 +281,8 @@ export default function App() {
             </div>
             
             {/* Floating Food Animation Section */}
-            <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:flex items-center justify-center overflow-visible">
-              <div className="relative w-full h-full">
+            <div className="relative w-full md:w-1/2 mt-10 md:mt-0 flex items-center justify-center order-2 md:order-1">
+              <div className="relative w-full h-[300px] sm:h-[350px] md:h-full">
                 {/* Background Decorative Elements - Enhanced */}
                 <motion.div 
                   animate={{ 
@@ -282,7 +292,7 @@ export default function App() {
                     y: [0, -30, 0]
                   }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-[10%] right-[20%] w-125 h-125 bg-amber-100/30 rounded-full blur-[120px]" 
+                  className="absolute top-[10%] right-[20%] w-24 h-24 sm:w-32 sm:h-32 md:w-125 md:h-125 bg-amber-100/30 rounded-full blur-[60px] md:blur-[120px]" 
                 />
                 <motion.div 
                   animate={{ 
@@ -292,17 +302,17 @@ export default function App() {
                     y: [0, 40, 0]
                   }}
                   transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="absolute bottom-[10%] left-[10%] w-150 h-150 bg-amber-100/30 rounded-full blur-[140px]" 
+                  className="absolute bottom-[10%] left-[10%] w-28 h-28 sm:w-36 sm:h-36 md:w-150 md:h-150 bg-amber-100/30 rounded-full blur-[70px] md:blur-[140px]" 
                 />
 
                 {/* Floating Ingredients - New dynamic elements */}
                 {[
-                  { icon: "🥬", delay: 0, x: -180, y: -150, size: "text-4xl" },
-                  { icon: "🍅", delay: 1, x: 200, y: -120, size: "text-5xl" },
-                  { icon: "🧀", delay: 2, x: -220, y: 100, size: "text-4xl" },
-                  { icon: "🧅", delay: 3, x: 180, y: 180, size: "text-3xl" },
-                  { icon: "🥓", delay: 4, x: 0, y: -250, size: "text-4xl" },
-                  { icon: "🌶️", delay: 5, x: -100, y: 220, size: "text-3xl" },
+                  { icon: "🥬", delay: 0, x: -80, y: -70, size: "text-2xl sm:text-3xl md:text-4xl" },
+                  { icon: "🍅", delay: 1, x: 90, y: -60, size: "text-3xl sm:text-4xl md:text-5xl" },
+                  { icon: "🧀", delay: 2, x: -100, y: 40, size: "text-2xl sm:text-3xl md:text-4xl" },
+                  { icon: "🧅", delay: 3, x: 80, y: 80, size: "text-xl sm:text-2xl md:text-3xl" },
+                  { icon: "🥓", delay: 4, x: 0, y: -110, size: "text-2xl sm:text-3xl md:text-4xl" },
+                  { icon: "🌶️", delay: 5, x: -40, y: 100, size: "text-xl sm:text-2xl md:text-3xl" },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
